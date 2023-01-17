@@ -1,0 +1,104 @@
+{
+	"name": "personalcodingsuite",
+	"displayName": "Personal Coding Suite",
+	"description": "A bunch of tools to help personalize the code you write",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.74.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./out/extension.js",
+	"activationEvents": [
+		
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "personalCodingSuite.personalHeader.generate",
+				"title": "Generate Personal Header"
+			},
+			{
+				"command": "personalCodingSuite.personalHeader.update",
+				"title": "Update Personal Header"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "personalCodingSuite.personalHeader.update",
+				"key": "Ctrl+Alt+N"
+			}
+		],
+		"configuration": [
+			{
+				"title": "Personal Header",
+				"properties": {
+					"personalCodingSuite.personalHeader.headerText": {
+						"type": "string",
+						"editPresentation": "multilineText",
+						"default": "Made By Me\n\n<filename>\n\nLast Edited: <date>",
+						"markdownDescription": "What should the Header look like.  \nYou can use some predefined variables:  \n\t`<date>` : replaced with the date of the header  \n\t`<filename>` : replaced with the filename"
+					},
+					"personalCodingSuite.personalHeader.columnWidth.enable": {
+						"type": "boolean",
+						"default": true,
+						"description": "Enable Column limit"
+					},
+					"personalCodingSuite.personalHeader.columnWidth.width": {
+						"type": "number",
+						"default": 80,
+						"minimum": 5,
+						"markdownDescription": "How many columns should the header be forced of size"
+					},
+					"personalCodingSuite.personalHeader.textAlign": {
+						"enum": ["Top", "Center", "Bottom"],
+						"default": "Center",
+						"markdownDescription": "Determine the vertical alignment of both the `Header Text` and `Ascii Art`"
+					},
+					"personalCodingSuite.personalHeader.textPadding": {
+						"type": "number",
+						"default": 2,
+						"markdownDescription": "Determine how many spaces are put on either side of the `Header Text` and/or `Ascii Art`"
+					},
+					"personalCodingSuite.personalHeader.dateFormat": {
+						"type": "string",
+						"default": "hh:mmAA DD/MM/YYYY",
+						"markdownDescription": "When `<date>` is used in the header text, it is replaced with this string"
+					},
+					"personalCodingSuite.personalHeader.asciiArt": {
+						"type": "string",
+						"editPresentation": "multilineText",
+						"default": "   /   /   \\\n /    |      \\\n|     |       |\n|      \\      |\n|       |     |\n \\      |    /\n   \\   /   /",
+						"description" : "This will be put on the right side of personal headers"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.74.0",
+		"@types/glob": "^8.0.0",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "16.x",
+		"@typescript-eslint/eslint-plugin": "^5.45.0",
+		"@typescript-eslint/parser": "^5.45.0",
+		"eslint": "^8.28.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.1.0",
+		"typescript": "^4.9.3",
+		"@vscode/test-electron": "^2.2.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+github.com:IsCoffeeTho/personal-coding-suite.git"
+	}
+}
