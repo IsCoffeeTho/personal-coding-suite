@@ -16,12 +16,12 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "personalCodingSuite.personalHeader.generate",
-				"title": "Generate Personal Header"
-			},
-			{
 				"command": "personalCodingSuite.personalHeader.update",
 				"title": "Update Personal Header"
+			},
+			{
+				"command": "personalCodingSuite.personalHeader.replaceExisting",
+				"title": "Update Personal Header only if it is already in the file"
 			}
 		],
 		"keybindings": [

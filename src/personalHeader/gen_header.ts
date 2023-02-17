@@ -1,3 +1,15 @@
+/* ========================================================================== */
+/*                                                                            */
+/*                                                             /   /   \      */
+/*   Made By IsCoffeeTho (Aaron Menadue)                     /    |      \    */
+/*                                                          |     |       |   */
+/*   gen_header.ts                                          |      \      |   */
+/*                                                          |       |     |   */
+/*   Last Edited: 12:24AM 18/02/2023                         \      |    /    */
+/*                                                             \   /   /      */
+/*                                                                            */
+/* ========================================================================== */
+
 import * as vscode from 'vscode';
 
 let settings: vscode.WorkspaceConfiguration;
@@ -43,9 +55,15 @@ export default function generateHeader(editor: vscode.TextEditor) {
 				return "PM";
 			return "AM";
 		}).replace(/h+/g, (match) => {
+			var hour = currentDate.getHours();
+			if (isTwelveHrTime) {
+				hour %= 12;
+				if (hour == 0)
+					hour = 12;
+			}
 			if (match.length > 1)
-				return `${((currentDate.getHours() - 1) % (isTwelveHrTime ? 12 : 24) + 1)}`.padStart(match.length, '0');
-			return `${((currentDate.getHours() - 1) % (isTwelveHrTime ? 12 : 24) + 1)}`;
+				return `${hour}`.padStart(match.length, '0');
+			return `${hour}`;
 		}).replace(/m+/g, (match) => {
 			if (match.length > 1)
 				return `${currentDate.getMinutes()}`.padStart(match.length, '0');

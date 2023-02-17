@@ -1,3 +1,15 @@
+/* ========================================================================== */
+/*                                                                            */
+/*                                                             /   /   \      */
+/*   Made By IsCoffeeTho (Aaron Menadue)                     /    |      \    */
+/*                                                          |     |       |   */
+/*   det_comment.ts                                         |      \      |   */
+/*                                                          |       |     |   */
+/*   Last Edited: 12:24AM 18/02/2023                         \      |    /    */
+/*                                                             \   /   /      */
+/*                                                                            */
+/* ========================================================================== */
+
 import * as vscode from 'vscode';
 
 export default function getCommentTokens(editor: vscode.TextEditor) {
