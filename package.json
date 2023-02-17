@@ -1,8 +1,10 @@
 {
 	"name": "personalcodingsuite",
 	"displayName": "Personal Coding Suite",
+	"icon":"assets/icon.png",
 	"description": "A bunch of tools to help personalize the code you write",
 	"version": "0.0.1",
+	"publisher":"iscoffeetho",
 	"engines": {
 		"vscode": "^1.74.0"
 	},
@@ -11,17 +13,17 @@
 	],
 	"main": "./out/extension.js",
 	"activationEvents": [
-		
+		"onStartupFinished"
 	],
 	"contributes": {
 		"commands": [
 			{
 				"command": "personalCodingSuite.personalHeader.update",
-				"title": "Update Personal Header"
+				"title": "Add or Update Personal Header"
 			},
 			{
 				"command": "personalCodingSuite.personalHeader.replaceExisting",
-				"title": "Update Personal Header only if it is already in the file"
+				"title": "Only Update Personal Header"
 			}
 		],
 		"keybindings": [
