@@ -1,11 +1,11 @@
 /* ========================================================================== */
 /*                                                                            */
 /*                                                             /   /   \      */
-/*   Made By IsCoffeeTho (Aaron Menadue)                     /    |      \    */
+/*   Made By Me                                              /    |      \    */
 /*                                                          |     |       |   */
 /*   det_comment.ts                                         |      \      |   */
 /*                                                          |       |     |   */
-/*   Last Edited: 12:24AM 18/02/2023                         \      |    /    */
+/*   Last Edited: 12:37AM 24/02/2023                         \      |    /    */
 /*                                                             \   /   /      */
 /*                                                                            */
 /* ========================================================================== */
@@ -37,6 +37,8 @@ export default function getCommentTokens(editor: vscode.TextEditor) {
 		case "ignore":
 		case "properties":
 			return ['#']
+		case "lua":
+			return ['--', '--']
 		default:
 			console.error('Unhandled Language:', editor.document.languageId);
 			return ['#'];
