@@ -3,7 +3,7 @@
 	"displayName": "Personal Coding Suite",
 	"icon":"assets/icon.png",
 	"description": "A bunch of tools to help personalize the code you write",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"publisher":"iscoffeetho",
 	"engines": {
 		"vscode": "^1.74.0"

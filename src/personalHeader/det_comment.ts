@@ -5,7 +5,7 @@
 /*                                                          |     |       |   */
 /*   det_comment.ts                                         |      \      |   */
 /*                                                          |       |     |   */
-/*   Last Edited: 12:24AM 18/02/2023                         \      |    /    */
+/*   Last Edited: 11:50AM 21/05/2023                         \      |    /    */
 /*                                                             \   /   /      */
 /*                                                                            */
 /* ========================================================================== */
@@ -31,14 +31,18 @@ export default function getCommentTokens(editor: vscode.TextEditor) {
 		case "groovy":
 		case "kotlin":
 			return ['/*', '*/'];
+		case "asm-intel-x86-generic":
+		case "nasm":
+			return [';;']; // this looks better than one
 		case "bat":
 			return ['@REM #', '#'];
 		case "ini":
 		case "ignore":
 		case "properties":
-			return ['#']
+		case "makefile":
+			return ['#'];
 		default:
-			console.error('Unhandled Language:', editor.document.languageId);
+			vscode.window.showErrorMessage(`Unhandled Language: ${editor.document.languageId}`);
 			return ['#'];
 	}
 }
